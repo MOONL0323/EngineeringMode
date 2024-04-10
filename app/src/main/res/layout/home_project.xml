@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="工程模式"
+        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rowCount="4"
+        android:columnCount="2"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/button_camera"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="摄像头诊断测试" />
+
+        <!-- Repeat for the other 7 buttons with the same margin -->
+        <Button
+            android:id="@+id/button_touch_screen"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="触摸屏测试"
+            tools:ignore="DuplicateIds" />
+
+        <Button
+            android:id="@+id/button_screen"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="显示屏测试" />
+
+        <Button
+            android:id="@+id/button_gnss"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="gnss定位测试" />
+
+        <Button
+            android:id="@+id/button_gyroscope"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="陀螺仪测试" />
+
+        <Button
+            android:id="@+id/button_temperature"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="温感测试" />
+
+        <Button
+            android:id="@+id/button_sim"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="SIM/IMEI测试" />
+
+        <Button
+            android:id="@+id/button_version_info"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="版本信息" />
+
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="73dp"
+        android:layout_height="40dp"
+        android:text="返回"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        android:layout_marginEnd="16dp" />
+
+    <Button
+        android:id="@+id/button_screen"
+        android:layout_width="73dp"
+        android:layout_height="40dp"
+        android:text="截屏"
+        app:layout_constraintEnd_toStartOf="@id/button_back"
+        app:layout_constraintTop_toTopOf="@id/title"
+        android:layout_marginEnd="8dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
