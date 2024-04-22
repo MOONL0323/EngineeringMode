@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:sharedUserMaxSdkVersion="29"
-    android:sharedUserId="android.uid.system">
+    >
     <!-- android:sharedUserId="android.uid.system" -->
     <uses-feature
         android:name="android.hardware.camera"
@@ -10,14 +10,15 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.BATTERY_STATS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> <!-- 监听来电 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 拨打电话 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 定位 -->
 
     <uses-feature android:name="android.hardware.sensor.gyroscope" />
 
@@ -32,47 +33,52 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".VersionInfoActivity"
+            android:name="com.fibocom.engineeringMode.activity.VersionInfoActivity"
             android:exported="false" />
 
         <receiver
-            android:name=".DialReceiver"
+            android:name="com.fibocom.engineeringMode.broadcast.DialReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".MainProjectTestActivity"
+        <activity android:name="com.fibocom.engineeringMode.activity.MainActivity"
             android:exported="true"
-            android:label="工程模式">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".GnssTestActivity"
+            android:name="com.fibocom.engineeringMode.activity.ManualEngineeringModeActivity"
+            android:exported="true"
+            android:label="工程模式">
+        </activity>
+
+        <activity
+            android:name="com.fibocom.engineeringMode.activity.GnssTestActivity"
             android:exported="false" />
         <activity
-            android:name=".GyroscopeTestActivity"
+            android:name="com.fibocom.engineeringMode.activity.GyroscopeTestActivity"
             android:exported="false" />
         <activity
-            android:name=".TemperatureTestActivity"
+            android:name="com.fibocom.engineeringMode.activity.TemperatureTestActivity"
             android:exported="false" />
         <activity
-            android:name=".SimTestActivity"
+            android:name="com.fibocom.engineeringMode.activity.SimTestActivity"
             android:exported="false" />
         <activity
-            android:name=".CameraTestActivity"
+            android:name="com.fibocom.engineeringMode.activity.CameraTestActivity"
             android:exported="false" />
         <activity
-            android:name=".TouchScreenTestActivity"
+            android:name="com.fibocom.engineeringMode.activity.TouchScreenTestActivity"
             android:exported="false" />
         <activity
-            android:name=".ScreenTestActivity"
+            android:name="com.fibocom.engineeringMode.activity.ScreenTestActivity"
             android:exported="false" />
     </application>
 

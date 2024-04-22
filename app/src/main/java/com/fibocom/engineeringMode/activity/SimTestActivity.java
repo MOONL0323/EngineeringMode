@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.fibocom.engineeringMode.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+import com.fibocom.engineeringMode.db.DBopenhelper;
+import com.fibocom.engineeringMode.utils.Util;
+import com.fibocom.myapplication.R;
 
 public class SimTestActivity extends AppCompatActivity {
 
@@ -33,6 +37,9 @@ public class SimTestActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        DBopenhelper dBopenhelper = DBopenhelper.getInstance(this, "test.db", null, 1);
+        Util.alertDialog("SIM卡测试","SIM卡是否正常",this,"sim",dBopenhelper,0,null);
 
     }
 

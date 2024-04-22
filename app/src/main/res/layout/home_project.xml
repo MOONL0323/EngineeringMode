@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="工程模式"
-        android:textSize="24sp"
+        android:textSize="@dimen/test_size"
+        android:text="@string/title"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:text="摄像头诊断测试" />
+            android:textSize="@dimen/test_size"
+            android:text="@string/button_camera"
+            />
 
         <!-- Repeat for the other 7 buttons with the same margin -->
         <Button
@@ -46,7 +48,8 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:text="触摸屏测试"
+            android:textSize="@dimen/test_size"
+            android:text="@string/button_touch_screen"
             tools:ignore="DuplicateIds" />
 
         <Button
@@ -56,7 +59,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:text="显示屏测试" />
+            android:textSize="@dimen/test_size"
+            android:text="@string/button_screen"
+             />
 
         <Button
             android:id="@+id/button_gnss"
@@ -65,7 +70,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:text="gnss定位测试" />
+            android:textSize="@dimen/test_size"
+            android:text="@string/button_gnss"
+           />
 
         <Button
             android:id="@+id/button_gyroscope"
@@ -74,7 +81,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:text="陀螺仪测试" />
+            android:textSize="@dimen/test_size"
+            android:text="@string/button_gyroscope"
+            />
 
         <Button
             android:id="@+id/button_temperature"
@@ -83,7 +92,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:text="温感测试" />
+            android:textSize="@dimen/test_size"
+            android:text="@string/button_temperature"
+            />
 
         <Button
             android:id="@+id/button_sim"
@@ -92,7 +103,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:text="SIM/IMEI测试" />
+            android:textSize="@dimen/test_size"
+            android:text="@string/button_sim"
+            />
 
         <Button
             android:id="@+id/button_version_info"
@@ -101,25 +114,31 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:text="版本信息" />
+            android:textSize="@dimen/test_size"
+            android:text="@string/button_version_info"
+            />
 
 
     </GridLayout>
 
     <Button
         android:id="@+id/button_back"
-        android:layout_width="73dp"
-        android:layout_height="40dp"
-        android:text="返回"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/test_size"
+        android:text="@string/button_back"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/title"
         android:layout_marginEnd="16dp" />
 
     <Button
-        android:id="@+id/button_screen"
-        android:layout_width="73dp"
-        android:layout_height="40dp"
-        android:text="截屏"
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/test_size"
+        android:text="@string/button_start"
+
         app:layout_constraintEnd_toStartOf="@id/button_back"
         app:layout_constraintTop_toTopOf="@id/title"
         android:layout_marginEnd="8dp" />

@@ -1,11 +1,17 @@
-package com.example.myapplication;
+package com.fibocom.engineeringMode.activity;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.fibocom.engineeringMode.db.DBopenhelper;
+import com.fibocom.engineeringMode.bean.VersionInfo;
+import com.fibocom.myapplication.R;
 
 /**
  *android.os.Build.BOARD：获取设备基板名称
@@ -31,13 +37,15 @@ import androidx.appcompat.app.AppCompatActivity;
  *android.os.Build.VERSION.SDK_INT：系统的API级别，int数值类型
  */
 public class VersionInfoActivity extends AppCompatActivity {
+    TextView tvVersionInfo;
+    VersionInfo versionInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_version_info);
-
-        VersionInfo versionInfo = new VersionInfo();
+        tvVersionInfo = findViewById(R.id.tv_version_info);
+        versionInfo = new VersionInfo();
         versionInfo.setBoard(getBoard());
         versionInfo.setBootloader(getBootloader());
         versionInfo.setBrand(getBrand());
@@ -61,6 +69,7 @@ public class VersionInfoActivity extends AppCompatActivity {
         versionInfo.setTime(String.valueOf(System.currentTimeMillis()));
 
         displayVersionInfo(versionInfo);
+        save(versionInfo);
 
         Button buttonBack = findViewById(R.id.button_back);
         buttonBack.setOnClickListener(v -> finish());
@@ -150,7 +159,6 @@ public class VersionInfoActivity extends AppCompatActivity {
 
 
     private void displayVersionInfo(VersionInfo versionInfo) {
-        TextView tvVersionInfo = findViewById(R.id.tv_version_info);
 
         tvVersionInfo.setText("设备基板名称：" + versionInfo.getBoard() + "\n"
                 + "设备引导程序版本号：" + versionInfo.getBootloader() + "\n"
@@ -172,5 +180,34 @@ public class VersionInfoActivity extends AppCompatActivity {
                 + "设备当前的系统开发代号：" + versionInfo.getVersionCodename() + "\n"
                 + "系统源代码控制值：" + versionInfo.getVersionIncremental() + "\n"
                 + "系统的API级别：" + versionInfo.getVersionSdk() + "\n");
+    }
+
+    public void save(VersionInfo versionInfo) {
+        //TODO 保存到数据库
+        DBopenhelper dBopenhelper = new DBopenhelper(this, "test.db", null, 1);
+        SQLiteDatabase db = dBopenhelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("data", System.currentTimeMillis());
+        values.put("board", versionInfo.getBoard());
+        values.put("bootloader", versionInfo.getBootloader());
+        values.put("brand", versionInfo.getBrand());
+        values.put("cpu_abi", versionInfo.getCpuAbi());
+        values.put("device", versionInfo.getDevice());
+        values.put("fingerprint", versionInfo.getFingerprint());
+        values.put("hardware", versionInfo.getHardware());
+        values.put("host", versionInfo.getHost());
+        values.put("id", versionInfo.getId());
+        values.put("model", versionInfo.getModel());
+        values.put("manufacturer", versionInfo.getManufacturer());
+        values.put("product", versionInfo.getProduct());
+        values.put("tags", versionInfo.getTags());
+        values.put("time", versionInfo.getTime());
+        values.put("type", versionInfo.getType());
+        values.put("build_user", versionInfo.getBuildUser());
+        values.put("version_release", versionInfo.getVersionRelease());
+        values.put("version_codename", versionInfo.getVersionCodename());
+        values.put("version_incremental", versionInfo.getVersionIncremental());
+        values.put("version_sdk", versionInfo.getVersionSdk());
+        db.insert("version_info", null, values);
     }
 }

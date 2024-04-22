@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.fibocom.engineeringMode;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.fibocom.engineeringMode.activity;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.fibocom.engineeringMode.db.DBopenhelper;
+import com.fibocom.engineeringMode.utils.Util;
+import com.fibocom.myapplication.R;
 
 public class GyroscopeTestActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -37,7 +41,10 @@ public class GyroscopeTestActivity extends AppCompatActivity implements SensorEv
             }
         });
 
+        DBopenhelper dBopenhelper = DBopenhelper.getInstance(this, "test.db", null, 1);
+        Util.alertDialog("陀螺仪测试","陀螺仪测试是否正常",this,"gyroscope",dBopenhelper,0,null);
     }
+
 
     @Override
     public void onSensorChanged(SensorEvent event) {

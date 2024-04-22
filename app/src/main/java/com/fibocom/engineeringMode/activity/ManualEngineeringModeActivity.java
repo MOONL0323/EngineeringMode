@@ -1,7 +1,7 @@
-package com.example.myapplication;
+package com.fibocom.engineeringMode.activity;
 
+import android.content.ContentValues;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.util.Log;
@@ -12,12 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-public class MainProjectTestActivity extends AppCompatActivity {
+import com.fibocom.engineeringMode.db.DBopenhelper;
+import com.fibocom.engineeringMode.bean.GlobalContentValues;
+import com.fibocom.engineeringMode.db.DbUtil;
+import com.fibocom.engineeringMode.db.dbimpl.DbUtilImpl;
+import com.fibocom.myapplication.R;
+
+public class ManualEngineeringModeActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 100;
     private MediaProjectionManager mProjectionManager;
     private MediaProjection mMediaProjection;
-
-    private static final int MY_PERMISSIONS_REQUEST_PROCESS_OUTGOING_CALLS = 1;
+    private static DbUtil dbUtil = new DbUtilImpl();
 
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState) {
@@ -27,10 +32,6 @@ public class MainProjectTestActivity extends AppCompatActivity {
 
         setContentView(R.layout.home_project);
 
-        //请求权限
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.PROCESS_OUTGOING_CALLS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.PROCESS_OUTGOING_CALLS}, MY_PERMISSIONS_REQUEST_PROCESS_OUTGOING_CALLS);
-        }
         //按返回键返回上一个页面
         Button button1 = findViewById(R.id.button_back);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +45,7 @@ public class MainProjectTestActivity extends AppCompatActivity {
         buttonTouchScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainProjectTestActivity.this, TouchScreenTestActivity.class);
+                Intent intent = new Intent(ManualEngineeringModeActivity.this, TouchScreenTestActivity.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +54,7 @@ public class MainProjectTestActivity extends AppCompatActivity {
         buttonScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainProjectTestActivity.this, ScreenTestActivity.class);
+                Intent intent = new Intent(ManualEngineeringModeActivity.this, ScreenTestActivity.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +63,7 @@ public class MainProjectTestActivity extends AppCompatActivity {
         buttonCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainProjectTestActivity.this, CameraTestActivity.class);
+                Intent intent = new Intent(ManualEngineeringModeActivity.this, CameraTestActivity.class);
                 startActivity(intent);
             }
         });
@@ -71,7 +72,7 @@ public class MainProjectTestActivity extends AppCompatActivity {
         buttonSim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainProjectTestActivity.this, SimTestActivity.class);
+                Intent intent = new Intent(ManualEngineeringModeActivity.this, SimTestActivity.class);
                 startActivity(intent);
             }
         });
@@ -80,7 +81,7 @@ public class MainProjectTestActivity extends AppCompatActivity {
         buttonTemperature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainProjectTestActivity.this, TemperatureTestActivity.class);
+                Intent intent = new Intent(ManualEngineeringModeActivity.this, TemperatureTestActivity.class);
                 startActivity(intent);
             }
         });
@@ -89,7 +90,7 @@ public class MainProjectTestActivity extends AppCompatActivity {
         buttonGyroscope.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainProjectTestActivity.this, GyroscopeTestActivity.class);
+                Intent intent = new Intent(ManualEngineeringModeActivity.this, GyroscopeTestActivity.class);
                 startActivity(intent);
             }
         });
@@ -98,17 +99,27 @@ public class MainProjectTestActivity extends AppCompatActivity {
         buttonGnss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainProjectTestActivity.this, GnssTestActivity.class);
+                Intent intent = new Intent(ManualEngineeringModeActivity.this, GnssTestActivity.class);
                 startActivity(intent);
             }
         });
 
-        Button buttonBattery = findViewById(R.id.button_version_info);
-        buttonBattery.setOnClickListener(new View.OnClickListener() {
+        Button buttonVersion = findViewById(R.id.button_version_info);
+        buttonVersion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainProjectTestActivity.this, VersionInfoActivity.class);
+                Intent intent = new Intent(ManualEngineeringModeActivity.this, VersionInfoActivity.class);
                 startActivity(intent);
+            }
+        });
+        Button buttonSave = findViewById(R.id.button_save);
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBopenhelper dBopenhelper = DBopenhelper.getInstance(ManualEngineeringModeActivity.this, "test.db", null, 1);
+                ContentValues values = GlobalContentValues.getInstance(0);
+                Log.d("MainProjectTestActivity", "onClick: " + values);
+                dbUtil.saveCommit(dBopenhelper, values, 0);
             }
         });
 

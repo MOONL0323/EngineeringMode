@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.fibocom.engineeringMode.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.fibocom.engineeringMode.db.DBopenhelper;
+import com.fibocom.engineeringMode.utils.Util;
+import com.fibocom.myapplication.R;
 
 public class ScreenTestActivity extends AppCompatActivity {
 
@@ -102,9 +106,11 @@ public class ScreenTestActivity extends AppCompatActivity {
                     view.setBackgroundResource(imageResources[currentImageIndex]);
                 } else {
                     currentImageIndex = 0;
-                    finish();
-                }
+                    DBopenhelper dBopenhelper = DBopenhelper.getInstance(ScreenTestActivity.this, "test.db", null, 1);
+                    Util.alertDialog("测试完成", "屏幕测试完成", ScreenTestActivity.this, "screen", dBopenhelper, 0,
+                            (dialog, which) -> finish());
 
+                }
             }
         });
 

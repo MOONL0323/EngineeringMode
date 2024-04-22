@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.fibocom.engineeringMode.bean;
 
 /**
  *android.os.Build.BOARD：获取设备基板名称
@@ -25,6 +25,7 @@ package com.example.myapplication;
  *android.os.Build.VERSION.SDK_INT：系统的API级别，int数值类型
  */
 public class VersionInfo {
+    private long data;
     private String Board;
     private String Bootloader;
     private String Brand;
@@ -213,4 +214,7 @@ public class VersionInfo {
     }
 
 
+    public void setData(long data) {
+        this.data = data;
+    }
 }

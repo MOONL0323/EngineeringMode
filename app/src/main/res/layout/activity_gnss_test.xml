@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="5dip" >
 
@@ -17,15 +22,18 @@
             android:layout_gravity="center_horizontal"
             android:background="#ff008b8b"
             android:orientation="horizontal">
+
             <TextView
-                android:paddingBottom="2dip"
+                android:id="@+id/gps_info_title"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dip"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="10dip"
+                android:paddingBottom="2dip"
+                android:textSize="@dimen/test_size"
+                android:text="@string/gps_desc"
                 android:textColor="#ffeeee00"
-                android:textSize="24sp"
-                android:text="@string/gps_desc"/>
+                 />
         </LinearLayout>
 
         <LinearLayout
@@ -46,7 +54,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff13579a"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
                     android:text="@string/gps_fixed_time"/>
                 <TextView
                     android:id="@+id/gps_fixed_time"
@@ -55,32 +63,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff00ff00"
-                    android:textSize="18sp"
-					android:text="@string/gps_default_value"/>
-            </LinearLayout>
-            
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:visibility="gone">
-                <TextView
-                    android:layout_width="150dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dip"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="#ff13579a"
-                    android:textSize="18sp"
-                    android:text="@string/gps_fixed_state"/>
-                <TextView
-                    android:id="@+id/gps_fixed_state"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dip"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="#ff00ff00"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
 					android:text="@string/gps_default_value"/>
             </LinearLayout>
 
@@ -89,15 +72,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/gps_update_time"
                     android:layout_width="150dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dip"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="#ff13579a"
-                    android:textSize="18sp"
-                    android:text="@string/gps_timestamp"/>
+                    android:layout_marginStart="10dip"
+                    android:textSize="@dimen/test_size"
+                    android:text="@string/gps_timestamp"
+                    android:textColor="#ff13579a" />
                 <TextView
                     android:id="@+id/gps_timestamp"
                     android:layout_width="wrap_content"
@@ -105,7 +89,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff00ff00"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
 					android:text="@string/gps_default_value"/>
             </LinearLayout>
 
@@ -121,7 +105,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff13579a"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
                     android:text="@string/gps_satellite_number"/>
                 <TextView
                     android:id="@+id/gps_satellite_number"
@@ -130,10 +114,10 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff00ff00"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
 					android:text="@string/gps_default_value"/>
             </LinearLayout>
-            
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -145,7 +129,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff13579a"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
                     android:text="@string/gps_longitude"/>
                 <TextView
                     android:id="@+id/gps_longitude"
@@ -154,7 +138,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff00ff00"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
 					android:text="@string/gps_default_value"/>
             </LinearLayout>
 
@@ -169,7 +153,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff13579a"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
                     android:text="@string/gps_latitude"/>
                 <TextView
                     android:id="@+id/gps_latitude"
@@ -178,7 +162,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff00ff00"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
 					android:text="@string/gps_default_value"/>
             </LinearLayout>
 
@@ -193,7 +177,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff13579a"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
                     android:text="@string/gps_speed"/>
                 <TextView
                     android:id="@+id/gps_speed"
@@ -202,31 +186,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff00ff00"
-                    android:textSize="18sp"
-					android:text="@string/gps_default_value"/>
-            </LinearLayout>
-            
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="150dip"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dip"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="#ff13579a"
-                    android:textSize="18sp"
-                    android:text="@string/gps_altitude"/>
-                <TextView
-                    android:id="@+id/gps_altitude"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dip"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="#ff00ff00"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
 					android:text="@string/gps_default_value"/>
             </LinearLayout>
 
@@ -241,19 +201,19 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff13579a"
-                    android:textSize="18sp"
-                    android:text="@string/gps_accuracy"/>
+                    android:textSize="@dimen/test_size"
+                    android:text="@string/gps_altitude"/>
                 <TextView
-                    android:id="@+id/gps_accuracy"
+                    android:id="@+id/gps_altitude"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff00ff00"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
 					android:text="@string/gps_default_value"/>
             </LinearLayout>
-            
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -265,7 +225,31 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff13579a"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
+                    android:text="@string/gps_accuracy"/>
+                <TextView
+                    android:id="@+id/gps_accuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dip"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ff00ff00"
+                    android:textSize="@dimen/test_size"
+					android:text="@string/gps_default_value"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dip"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ff13579a"
+                    android:textSize="@dimen/test_size"
                     android:text="@string/gps_bearing"/>
                 <TextView
                     android:id="@+id/gps_bearing"
@@ -274,7 +258,7 @@
                     android:layout_marginStart="10dip"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ff00ff00"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/test_size"
 					android:text="@string/gps_default_value"/>
             </LinearLayout>
         </LinearLayout>
@@ -294,14 +278,15 @@
                 android:layout_marginStart="10dip"
                 android:layout_gravity="center_horizontal"
                 android:textColor="#ffeeee00"
-                android:textSize="24sp"
+                android:textSize="@dimen/test_size"
                 android:text="@string/gps_list_title"/>
         </LinearLayout>
 
         <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="278dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
             android:background="@drawable/border_rectangle"
             android:orientation="vertical"
             android:scrollbars="none">
@@ -313,7 +298,7 @@
                 android:layout_margin="20dip"
                 android:text="@string/gps_satellite_list"
                 android:textColor="#ffcc3377"
-                android:textSize="15dip"
+                android:textSize="@dimen/test_size"
                 android:typeface="monospace" />
         </ScrollView>
 
@@ -327,7 +312,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="开始测试"
+                android:textSize="@dimen/test_size"
+                android:text="@string/button_start"
                 android:id="@+id/start_gnss_test"
                 android:onClick="startGnssTest"/>
 
@@ -335,21 +321,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="返回"
-                android:id="@+id/stop_gnss_test"
-                android:onClick="stopGnssTest"/>
+                android:textSize="@dimen/test_size"
+                android:text="@string/button_back"
+                android:id="@+id/back_gnss_test"
+                android:onClick="backGnssTest"/>
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="结束测试"
-                android:id="@+id/clear_gnss_test"
-                android:onClick="clearGnssTest"/>
         </LinearLayout>
 
     </LinearLayout>
 
+    </ScrollView>
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
