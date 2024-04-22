@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button_manual"
+        android:layout_width="165dp"
+        android:layout_height="85dp"
+        android:layout_centerInParent="true"
+        android:text="@string/manual"
+        android:textSize="@dimen/test_size" />
+
+    <Button
+        android:id="@+id/button_auto"
+        android:layout_width="165dp"
+        android:layout_height="85dp"
+        android:layout_below="@+id/button_manual"
+        android:layout_centerHorizontal="true"
+        android:text="@string/auto"
+        android:textSize="@dimen/test_size" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/button_back"
+        android:textSize="@dimen/test_size" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/button_back"
+        android:layout_alignTop="@+id/button_back"
+        android:text="@string/save"
+        android:textSize="@dimen/test_size" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/title"
+        android:textSize="@dimen/test_size" />
+</RelativeLayout>

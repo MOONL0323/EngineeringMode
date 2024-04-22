@@ -1,0 +1,42 @@
+<resources>
+    <dimen name="test_size">14sp</dimen>
+
+    <!-- Main -->
+    <string name="manual">手动测试</string>
+    <string name="auto">自动测试</string>
+    <string name="save">保存</string>
+
+    <!-- Home -->
+    <string name="title">工程模式</string>
+    <string name="button_camera">摄像头测试</string>
+    <string name="button_touch_screen">触摸屏测试</string>
+    <string name="button_screen">显示屏测试</string>
+    <string name="button_gnss">gnss定位测试</string>
+    <string name="button_gyroscope">陀螺仪测试</string>
+    <string name="button_temperature">温感测试</string>
+    <string name="button_sim">SIM卡测试</string>
+    <string name="button_version_info">版本信息</string>
+
+    <!-- Common -->
+    <string name="button_back">退出</string>
+    <string name="button_start">开始测试</string>
+    <string name="button_stop">停止</string>
+
+
+    <!-- GPS -->
+    <string name="app_name">My Application</string>
+    <string name="gps_desc">GPS位置更新：\n\n</string>
+    <string name="gps_default_value"><![CDATA[<unknown>]]></string>
+    <string name="gps_satellite_list">当前信噪比大于30的真星个数：</string>
+    <string name="gps_list_title">GPS真星列表：</string>
+    <string name="gps_bearing">导向：</string>
+    <string name="gps_accuracy">精度：</string>
+    <string name="gps_altitude">高度：</string>
+    <string name="gps_speed">速度：</string>
+    <string name="gps_latitude">纬度：</string>
+    <string name="gps_longitude">经度：</string>
+    <string name="gps_satellite_number">收星个数：</string>
+    <string name="gps_timestamp">更新时间：</string>
+    <string name="gps_fixed_state" />
+    <string name="gps_fixed_time" />
+</resources>
